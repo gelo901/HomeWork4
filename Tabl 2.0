@@ -12,7 +12,7 @@
    	    Tik,
 	    end,
 	    user,
-            i = 1,
+           i = 1,
 	    start,
      	    answer,
 	    ball = 0,
