@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="utf-8">
+ </head>
+ <body>
+ 
+<script>
+
+	var d,
+			k,
+			Tik,
+			end,
+			user,
+			i = 1,
+			start,
+			answer,
+			ball = 0,
+			massTrue = [],
+			massFalse = [],
+			massFalseTime = [];
+			
+			function multitask(){
+											
+									alert('Проверка таблицы умножения');
+									alert('Тест на 12 примеров на каждый 30 секунд удачи!');
+									do{
+											start = new Date();	
+											d = Math.floor(Math.random() * 100),
+											k = Math.floor(Math.random() * 100),
+											answer = d * k;
+											user	= +prompt(`${d} * ${k} введите ответ ${i} из 12`);
+											end = new Date();
+											Tik = Math.round((end - start) / 1000);
+											if(user != answer){
+  											massFalse.push(` ${i}) ${d} * ${k} = ${user} (${answer}) `);
+											}
+											else if((user === answer)&&(Tik === 30 || Tik > 30)){
+  											massFalseTime.push(` ${i}) ${d} * ${k} = ${user} `);
+  										} 	 
+											else{
+  											massTrue.push(` ${i}) ${d} * ${k} = ${user} `);
+  											ball++;
+												}
+												i++;
+									}while(i <= 12)
+											  console.log(`Не верные:`);
+  											console.log(`${massFalse}`);
+  											console.log(`Не засчитаные из-за времени:`);
+  											console.log(`${massFalseTime}`);
+  											console.log(`Верные:`);
+  											console.log(`${massTrue}`);
+  											console.log(`Ваши баллы: ${ball}`);
+  		
+  		}								 	
+  										
+
+  multitask();										 
+
+  	
+</script>
+</body>
+</html>
