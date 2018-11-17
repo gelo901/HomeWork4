@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <title>Документ без названия</title>
+          
+    </head>
+    <body>
+     <script>
+
+var i = 0,
+	user,		 
+	summ,
+	diff,
+	kubik1,
+	kubik2,
+	stavka,
+	result,
+	wallet,
+	resStav,
+	summDabul,
+	summDabul2;
+
+
+function game(){
+ wallet = 1000;
+ alert(`Добро пожаловать в игру!`);
+ console.log(` Ваши деньги:${wallet}$`);
+ alert(`Что бы посмотреть свой кошелек нажмите "F12"`);
+
+
+do{
+	function dice(){
+		 	diff = wallet - stavka;
+		 	console.log(` Остаток денег:${diff}$`);
+		 	kubik1 = Math.floor(Math.random() * 6 + 1),
+ 		 	kubik2 = Math.floor(Math.random() * 6 + 1);
+	     	summ = kubik1 + kubik2;
+		 	user = +prompt(`Ваше число? (От 1 до 12)`); // !!!Для проверки!!!! user = +prompt(`${kubik1} = k1 , ${kubik2} = k2 and Ваше число?`);
+		 	if((kubik1 === kubik2)&&(user === summ)){
+ 		 		return 'Вы выиграли +';
+		 		}
+		 		else if(user === summ){
+		 		 	return 'Вы выиграли';
+		 		} 
+		 		else{
+		      		return 'You loos';
+			 		}
+		}	
+
+
+	function stav(x){
+			if(result === 'Вы выиграли +'){
+		   		resStav = (wallet - stavka) + stavka * 3;
+		   		alert('Вы выиграли тройную ставку!')
+		   		return resStav;
+				}
+				else if(result === 'Вы выиграли'){
+ 					resStav = (wallet - stavka) + stavka * 2;
+					alert('Вы выиграли двойную ставку!')
+					return resStav;
+				}
+				else{
+		 			resStav = wallet - stavka;
+		 			alert('Вы проиграли ставку!');
+		 			return resStav;
+			}	
+		}
+
+		
+		var y = 1;
+	do{
+   		stavka = +prompt(`Вашa ставка?`);
+		if((y === 2) && (stavka > wallet)){
+	 		return	alert(`Вы пьяны! Идите домой!`);	
+			}
+			if((y === 2) && (parseInt(stavka) != stavka)){
+	 		return	alert(`Идите учите математику...`);	
+			}
+			else if(stavka > wallet){
+	 				alert('У вас нет таких денег!');
+	 				y++;
+	 				}
+	 				else if(parseInt(stavka) != stavka){
+	 						alert("Введите целое число!");
+	 						y++;
+	 				}
+	 				else if(!stavka){
+	 					return	alert(`Всего хорошего`);	
+	 						
+	 				}
+	 			 	else{
+	  	 				y = 1;
+	  	 				result = dice();
+	  	 				wallet = stav();
+	  	 				console.log(` Ваши деньги:${wallet}$`);
+	  						if(wallet >= 10000){
+								wallet = 10000;
+								console.log(` Получено:${wallet}`);
+								return alert(`Прздровляю с выиграшем! Заберите ваши деньги... ${wallet}$`);
+								}	
+								else if(wallet === 0 || wallet < 0){
+		 						return alert(`Жаль, но вы проиграли все деньги. приходите завтра!`);
+								}
+								else{
+		  						i++;
+		 						}	
+						} 
+
+			}while(y < 3)
+	 }while( i < Infinity)
+	 }
+
+
+game();
+   
+	
+     </script>
+    </body>
+</html>
