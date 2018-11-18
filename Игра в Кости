@@ -43,6 +43,9 @@ do{
 		 		else if(user === summ){
 		 		 	return 'Вы выиграли';
 		 		} 
+		 		else if(user > 12){
+		 					return 'error';
+		 		}
 		 		else{
 		      		return 'You loos';
 			 		}
@@ -59,6 +62,10 @@ do{
  					resStav = (wallet - stavka) + stavka * 2;
 					alert(`Выпало: ${kubik1} и ${kubik2}. Сумма кубиков ${summ}. Ваша ставка ${user}  Вы выиграли двойную ставку!`)
 					return resStav;
+				}
+				else if(result === 'error'){
+					alert(`Число кубиков не коректна!`);
+					return resStav = wallet;
 				}
 				else{
 		 			resStav = wallet - stavka;
