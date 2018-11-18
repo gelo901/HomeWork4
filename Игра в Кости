@@ -52,17 +52,17 @@ do{
 	function stav(x){
 			if(result === 'Вы выиграли +'){
 		   		resStav = (wallet - stavka) + stavka * 3;
-		   		alert('Вы выиграли тройную ставку!')
+		   		alert(`Выпало: ${kubik1} и ${kubik2}. Сумма кубиков ${summ}. Ваша ставка ${user}  Вы выиграли тройную ставку!`)
 		   		return resStav;
 				}
 				else if(result === 'Вы выиграли'){
  					resStav = (wallet - stavka) + stavka * 2;
-					alert('Вы выиграли двойную ставку!')
+					alert(`Выпало: ${kubik1} и ${kubik2}. Сумма кубиков ${summ}. Ваша ставка ${user}  Вы выиграли двойную ставку!`)
 					return resStav;
 				}
 				else{
 		 			resStav = wallet - stavka;
-		 			alert('Вы проиграли ставку!');
+		 			alert(`Выпало: ${kubik1} и ${kubik2}. Сумма кубиков ${summ}. Ваша ставка ${user}  Вы проиграли!`);
 		 			return resStav;
 			}	
 		}
